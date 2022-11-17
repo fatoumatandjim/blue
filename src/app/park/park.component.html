@@ -1,0 +1,129 @@
+<main id="main" class="main">
+
+
+    <!-- End Page Title -->
+    <h1>Liste Des Car en cours  de voyage</h1>
+    <section class="section profile">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal" class="btn btn-outline-success">Ajouter</button><br><br>
+    
+        <div class="modal fade" id="basicModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Basic Modal</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">formulaire</h5>
+
+                                <!-- Horizontal Form -->
+                                <form  (ngSubmit)="onSubmit(form)" #form="ngForm">
+                                    <div class="row mb-3">
+                                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nom</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="inputText"  name="nom" ngModel #nom="ngModel">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="inputEmail3" class="col-sm-2 col-form-label"  >no Plaque</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="numplaque" id="inputText" name="numplaque" ngModel #numplaque="ngModel">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="inputEmail3" class="col-sm-2 col-form-label">description</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="description" ngModel #description="ngModel"  id="inputText">
+                                        </div> </div>
+                                      
+                                    
+                                 
+                                  
+                                    <!-- <div class="row mb-3">
+                                        <label for="inputEmail3" class="col-sm-2 col-form-label">prix50kg</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="prixSac50Kg" ngModel #prixSac50Kg="ngModel" id="inputEmail">
+                                        </div>
+                                    </div> -->
+                                    <!-- <div class="row mb-3">
+                                        <label for="inputPassword3" class="col-sm-2 col-form-label">prixSac100kg</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="prixSac100kg" ngModel #prixSac100kg="ngModel" id="inputPassword">
+                                        </div>
+                                    </div> -->
+
+                                  
+
+                                    <div class="row mb-3">
+                                        <div class="col-sm-10 offset-sm-2">
+                                        </div>
+                                     
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">reset</button>
+                                        <button type="submit" class="btn btn-primary">Ajouter</button>
+                                    </div>
+                                </form>
+                                <!-- End Horizontal Form -->
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div><br><br>
+
+        <div class="md-form mt-0" id="filter">
+            <input class="form-control mr-sm-4 r" [(ngModel)]="searchText" type="text" autocomplete="off " placeholder="Rechercher">
+        </div><br>
+        <div class="row">
+
+
+            <div class="col-xl-3" *ngFor="let park of park | filter:searchText">
+
+                <div class="card" >
+
+
+
+
+                    <div class="card-body profile-card pt-4 d-flex flex-column align-items-center w">
+                 
+               {{park.nom}}
+                        <img src="assets/img/v.jpg" alt="Profile" class="rounded-circle ">
+                        <div><td class="fw-bold eta"> <span class="badge bg-success">No:{{park.numplaque}}</span></td></div><br>
+                     
+                      <div class="d-flex icon"> 
+                        <i class="bi bi-pencil b " ></i>
+                        <i  class="bi bi-trash c "></i></div>
+
+                    </div>
+                   
+                 
+                   
+                </div>
+              
+            </div>
+          
+          
+          
+        </div>
+        <div class="col-xl-3">
+
+
+
+        </div>
+        <div class="col-xl-3">
+
+
+
+
+
+        </div>
+    
+    </section>
+
+</main>
+<!-- End #main -->
